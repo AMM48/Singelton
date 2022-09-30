@@ -1,3 +1,14 @@
-language: java
-jdk: oraclejdk11
-script: mvn clean verify
+{
+  "language": "java",
+  "sudo": false,
+  "jdk": [
+    "openjdk11"
+  ],
+  "script": [
+    "mvn clean package",
+    "mvn test package"
+  ],
+  "after_success": [
+    "bash <(curl -s https://codecov.io/bash)"
+  ]
+}
